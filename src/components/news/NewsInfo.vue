@@ -2,7 +2,7 @@
     <div class="newsinfo-container">
 
         <h3>新闻详情页面</h3>
-
+        <div class="content"></div>
         <!-- 大标题 -->
 <!--        <h3 class="title">{{ newsinfo.title }}</h3>-->
 <!--        &lt;!&ndash; 子标题 &ndash;&gt;-->
@@ -18,40 +18,41 @@
 
 <!--        &lt;!&ndash; 评论子组件区域 &ndash;&gt;-->
 <!--        <comment-box :id="this.id"></comment-box>-->
+        <comment-box></comment-box>
     </div>
 </template>
 
 <script>
   // 1. 导入 评论子组件
-  // import comment from "../subcomponents/comment.vue";
-  //
-  // export default {
-  //   data() {
-  //     return {
-  //       id: this.$route.params.id, // 将 URL 地址中传递过来的 Id值，挂载到 data上，方便以后调用
-  //       newsinfo: {} // 新闻对象
-  //     };
-  //   },
-  //   created() {
-  //     this.getNewsInfo();
-  //   },
-  //   methods: {
-  //     getNewsInfo() {
-  //       // 获取新闻详情
-  //       this.$http.get("api/getnew/" + this.id).then(result => {
-  //         if (result.body.status === 0) {
-  //           this.newsinfo = result.body.message[0];
-  //         } else {
-  //           Toast("获取新闻失败！");
-  //         }
-  //       });
-  //     }
-  //   },
-  //   components: {
-  //     // 用来注册子组件的节点
-  //     "comment-box": comment
-  //   }
-  // };
+  import comment from "../subcomponents/comment.vue";
+
+  export default {
+    data() {
+      return {
+        // id: this.$route.params.id, // 将 URL 地址中传递过来的 Id值，挂载到 data上，方便以后调用
+        newsinfo: {} // 新闻对象
+      };
+    },
+    created() {
+      // this.getNewsInfo();
+    },
+    // methods: {
+    //   getNewsInfo() {
+    //     // 获取新闻详情
+    //     this.$http.get("api/getnew/" + this.id).then(result => {
+    //       if (result.body.status === 0) {
+    //         this.newsinfo = result.body.message[0];
+    //       } else {
+    //         Toast("获取新闻失败！");
+    //       }
+    //     });
+    //   }
+    // },
+    components: {
+      // 用来注册子组件的节点
+      "comment-box": comment
+    }
+  };
 </script>
 
 <style lang="scss">
@@ -75,4 +76,9 @@
     /*        }*/
     /*    }*/
     /*}*/
+    .newsinfo-container {
+        .content {
+            height: 400px;
+        }
+    }
 </style>
