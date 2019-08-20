@@ -2,15 +2,8 @@
     <div>
 
         <!--轮播图区域-->
-        <mt-swipe :auto="4000">
-            <mt-swipe-item>1</mt-swipe-item>
-            <mt-swipe-item>2</mt-swipe-item>
-            <mt-swipe-item>3</mt-swipe-item>
-            <!-- 在组件中，使用v-for循环的话，一定要使用 key -->
-<!--            <mt-swipe-item v-for="item in lunbotuList" :key="item.url">-->
-<!--                <img :src="item.img" alt="">-->
-<!--            </mt-swipe-item>-->
-        </mt-swipe>
+        <swiper></swiper>
+<!--        <swiper :lunbotuList="lunbotuList" :isfull="true"></swiper>-->
 
         <!--九宫格到六宫格-->
         <ul class="mui-table-view mui-grid-view mui-grid-9">
@@ -42,6 +35,7 @@
 
 <script>
   import { Toast } from 'mint-ui'
+  import swiper from '../subcomponents/swiper.vue'
 
   export default {
     data() {
@@ -66,7 +60,10 @@
       //     }
       //   })
       // }
-    //]
+    //],
+    components: {
+      swiper
+    }
   }
 </script>
 
